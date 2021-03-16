@@ -41,8 +41,8 @@ import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "
                     </mat-form-field>
                 </mat-card-content>
                 <mat-card-actions fxLayout="row" fxLayoutAlign="space-evenly">
-                    <button mat-button color="accent" type="reset">RESET</button>
-                    <button mat-button color="primary" type="submit">ENVOYER</button>
+                    <button mat-button color="primary" type="reset">RESET</button>
+                    <button mat-button color="accent" type="submit">ENVOYER</button>
                 </mat-card-actions>
             </mat-card>
         </form>

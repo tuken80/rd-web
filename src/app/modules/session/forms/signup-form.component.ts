@@ -4,94 +4,112 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 @Component({
     selector: 'app-form-signup',
     template: `
-        <form [formGroup]="form" (ngSubmit)="submit()">
-            <mat-card class="mat-elevation-z3">
-                <mat-card-header>
-                    <mat-card-title>Inscription</mat-card-title>
-                </mat-card-header>
-
-                <mat-card-content fxLayout="column" fxLayoutAlign="center">
-                    <mat-horizontal-stepper linear #stepper>    
-                        <mat-step [stepControl]="firstFormGroup">
-<!--
-
-                            <mat-form-field class="rotate-listener" appearance="outline" floatLabel="always" color="accent">
-                                <mat-label class="color-accent">Adresse mail</mat-label>
-                                <input matInput type="email" formControlName="mail" required>
-                                <mat-icon class="rotate-target" matSuffix>mail</mat-icon>
-                                <mat-error [hidden]="form.controls.mail.pristine">{{getMailErrors()}}</mat-error>
-                            </mat-form-field>
-                            <mat-form-field class="rotate-listener" appearance="outline" floatLabel="always" color="accent"  [ngSwitch]="showPassword">
-                                <mat-label class="color-accent">Mot de passe</mat-label>
-                                <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password" required>
-                                <mat-icon class="rotate-target" matSuffix *ngSwitchCase="false" (click)="showPassword = !showPassword">visibility</mat-icon>
-                                <mat-icon class="rotate-target" matSuffix *ngSwitchCase="true" (click)="showPassword = !showPassword">visibility_off</mat-icon>
-                                <mat-error [hidden]="form.controls.password.pristine">{{getPasswordErrors()}}</mat-error>
-                            </mat-form-field>
-
--->
-
-                            <form [formGroup]="idsFormGroup">
-                                <ng-template matStepLabel>Fill out your name</ng-template>
-                                <mat-form-field>
-                                    <mat-label>Name</mat-label>
-                                    <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-                                </mat-form-field>
-                                <div>
-                                    <button mat-button matStepperNext>Next</button>
+                    <mat-card class="mat-elevation-z3">
+                        <mat-card-header fxLayout="row" fxLayoutAlign="center center">
+                            <mat-card-title>Inscription</mat-card-title>
+                        </mat-card-header>
+        
+                        <mat-card-content>
+                        <mat-horizontal-stepper linear #stepper>    
+                           <mat-step [stepControl]="idsFormGroup">
+                               <form [formGroup]="idsFormGroup" fxLayout="column" fxLayoutAlign="center">
+                                <ng-template matStepLabel>Identifiants</ng-template>
+                                   <mat-form-field class="rotate-listener" appearance="outline" floatLabel="always" color="accent">
+                                       <mat-label class="color-accent">Adresse mail</mat-label>
+                                       <input matInput type="email" formControlName="mail" required>
+                                       <mat-icon class="rotate-target" matSuffix>mail</mat-icon>
+                                       <mat-error [hidden]="idsFormGroup.controls.mail.pristine">{{getMailErrors()}}</mat-error>
+                                   </mat-form-field>
+                                   <mat-form-field class="rotate-listener" appearance="outline" floatLabel="always" color="accent"  [ngSwitch]="showPassword">
+                                       <mat-label class="color-accent">Mot de passe</mat-label>
+                                       <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password" required>
+                                       <mat-icon class="rotate-target" matSuffix *ngSwitchCase="false" (click)="showPassword = !showPassword">visibility</mat-icon>
+                                       <mat-icon class="rotate-target" matSuffix *ngSwitchCase="true" (click)="showPassword = !showPassword">visibility_off</mat-icon>
+                                       <mat-error [hidden]="idsFormGroup.controls.password.pristine">{{getPasswordErrors()}}</mat-error>
+                                   </mat-form-field>
+                                   <mat-form-field class="rotate-listener" appearance="outline" floatLabel="always" color="accent" [ngSwitch]="showConfirmPassword">
+                                       <mat-label class="color-accent">Confirmation du mot de passe</mat-label>
+                                       <input matInput [type]="showConfirmPassword ? 'text' : 'password'" formControlName="confirmPassword" required>
+                                       <mat-icon class="rotate-target" matSuffix *ngSwitchCase="false" (click)="showConfirmPassword = !showConfirmPassword">visibility</mat-icon>
+                                       <mat-icon class="rotate-target" matSuffix *ngSwitchCase="true" (click)="showConfirmPassword = !showConfirmPassword">visibility_off</mat-icon>
+                                       <mat-error [hidden]="idsFormGroup.controls.confirmPassword.pristine">{{getConfirmPasswordErrors()}}</mat-error>
+                                   </mat-form-field>
+                                <div fxLayout="row" fxLayoutAlign="end center">
+                                    <button type="button" color="accent" mat-button matStepperNext>SUIVANT</button>
                                 </div>
                             </form>
                         </mat-step>
-                        <mat-step [stepControl]="secondFormGroup" [optional]="isOptional">
-                            <form [formGroup]="secondFormGroup">
-                                <ng-template matStepLabel>Fill out your address</ng-template>
-                                <mat-form-field>
-                                    <mat-label>Address</mat-label>
-                                    <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
-                                           required>
+                        <mat-step [stepControl]="userDataFormGroup" optional="true">
+                            <form [formGroup]="userDataFormGroup" fxLayout="column" fxLayoutAlign="center">
+                                <ng-template matStepLabel>Informations</ng-template>
+                                <mat-form-field class="rotate-listener" appearance="outline" floatLabel="always" color="accent">
+                                    <mat-label class="color-accent">Prénom</mat-label>
+                                    <input matInput type="text" formControlName="firstname" required>
+                                    <mat-icon class="rotate-target" matSuffix>mail</mat-icon>
+                                    <mat-error [hidden]="userDataFormGroup.controls.firstname.pristine">{{getMailErrors()}}</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="rotate-listener" appearance="outline" floatLabel="always" color="accent">
+                                    <mat-label class="color-accent">Nom de famille</mat-label>
+                                    <input matInput type="text" formControlName="lastname" required>
+                                    <mat-icon class="rotate-target" matSuffix>mail</mat-icon>
+                                    <mat-error [hidden]="userDataFormGroup.controls.lastname.pristine">{{getMailErrors()}}</mat-error>
+                                </mat-form-field>
+                                <div fxLayout="row" fxLayoutAlign="center space-evenly">
+                                    <button fxFlex="30" color="primary" type="button" mat-button matStepperPrevious>PRECEDENT</button>
+                                    <button fxFlex="30" color="accent" type="button" mat-button matStepperNext>INSCRIPTION</button>
+                                </div>
+                            </form>
+                        </mat-step>
+                        <mat-step [stepControl]="cguFormGroup" optional="true">
+                            <form [formGroup]="cguFormGroup" fxLayout="column" fxLayoutAlign="center">
+                                <ng-template matStepLabel>Conditions générales</ng-template>
+                                <mat-form-field class="rotate-listener" appearance="outline" floatLabel="always" color="accent">
+                                    <mat-label class="color-accent">Vous déclarez accepter les conditions générales d'utilisations</mat-label>
+                                    <mat-checkbox labelPosition="after" formControlName="accept" required>
+                                        I'm a checkbox
+                                    </mat-checkbox>
+                                    <mat-icon class="rotate-target" matSuffix>mail</mat-icon>
+                                    <mat-error [hidden]="cguFormGroup.controls.accept.pristine">{{getAcceptCGUErrors()}}</mat-error>
                                 </mat-form-field>
                                 <div>
                                     <button mat-button matStepperPrevious>Back</button>
-                                    <button mat-button matStepperNext>Next</button>
+                                    <button mat-button (click)="stepper.reset()">Reset</button>
                                 </div>
                             </form>
                         </mat-step>
-                        <mat-step>
-                            <ng-template matStepLabel>Done</ng-template>
-                            <p>You are now done.</p>
-                            <div>
-                                <button mat-button matStepperPrevious>Back</button>
-                                <button mat-button (click)="stepper.reset()">Reset</button>
-                            </div>
-                        </mat-step>
                     </mat-horizontal-stepper>
                 </mat-card-content>
-
-                <mat-card-actions fxLayout="row" fxLayoutAlign="center space-evenly">
-                    <button fxFlex="30" mat-button color="accent" type="reset">RESET</button>
-                    <button fxFlex="30" mat-button color="primary" type="submit">ENVOYER</button>
-                </mat-card-actions>
             </mat-card>
-        </form>
   `,
-    styles: []
+    styles: [
+        "mat-checkbox { margin: 0 10px; }"
+    ]
 })
 export class SignUpFormComponent {
     idsFormGroup: FormGroup = this.fb.group({
         mail: ['', [Validators.required, Validators.email]],
-        password: ['', Validators.required]
+        password: ['', Validators.required],
+        confirmPassword: ['', Validators.required]
+    });
+    userDataFormGroup: FormGroup = this.fb.group({
+        firstname: ['', []],
+        lastname: ['', []]
+    });
+    cguFormGroup: FormGroup = this.fb.group({
+        accept: [false, Validators.requiredTrue]
     });
     showPassword = false;
+    showConfirmPassword = false;
 
     constructor(private fb: FormBuilder) {}
 
     getMailErrors(): string[] {
         let errors = [];
 
-        if (this.form.controls.mail.hasError('required'))
+        if (this.idsFormGroup.controls.mail.hasError('required'))
             errors.push('Obligatoire.');
 
-        if (this.form.controls.mail.hasError('email'))
+        if (this.idsFormGroup.controls.mail.hasError('email'))
             errors.push('Format incorrect.');
 
         return errors;
@@ -100,7 +118,26 @@ export class SignUpFormComponent {
     getPasswordErrors(): string[] {
         let errors = [];
 
-        if (this.form.controls.password.hasError('required'))
+        if (this.idsFormGroup.controls.password.hasError('required'))
+            errors.push('Obligatoire.');
+
+        return errors;
+    }
+
+    getConfirmPasswordErrors(): string[] {
+        let errors = [];
+
+        if (this.idsFormGroup.controls.confirmPassword.hasError('required'))
+            errors.push('Obligatoire.');
+
+        return errors;
+    }
+
+
+    getAcceptCGUErrors(): string[] {
+        let errors = [];
+
+        if (this.idsFormGroup.controls.confirmPassword.hasError('required'))
             errors.push('Obligatoire.');
 
         return errors;

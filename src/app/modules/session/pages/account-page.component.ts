@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
     selector: 'app-page-account',
     template: `
         <section [hidden]="isAuthConnected()" fxLayout="row" fxLayoutAlign="space-between center">
-            <app-form-signin fxFlex="45"></app-form-signin>
-            <app-form-signup fxFlex="45"></app-form-signup>
+            <app-form-signin fxFlex="40"></app-form-signin>
+            <app-form-signup fxFlex="58"></app-form-signup>
         </section>
     ACCOUNT PAGE
     <app-form-profil></app-form-profil>

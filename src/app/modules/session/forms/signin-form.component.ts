@@ -6,7 +6,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
     template: `
         <form [formGroup]="form" (ngSubmit)="submit()">
             <mat-card class="mat-elevation-z3">
-                <mat-card-header>
+                <mat-card-header fxLayout="row" fxLayoutAlign="center center">
                     <mat-card-title>Connexion</mat-card-title>
                 </mat-card-header>
 
@@ -27,8 +27,8 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
                 </mat-card-content>
 
                 <mat-card-actions fxLayout="row" fxLayoutAlign="center space-evenly">
-                    <button fxFlex="30" mat-button color="accent" type="reset">RESET</button>
-                    <button fxFlex="30" mat-button color="primary" type="submit">ENVOYER</button>
+                    <button fxFlex="30" mat-button color="primary" type="reset">RESET</button>
+                    <button fxFlex="30" mat-button color="accent" type="submit">SE CONNECTER</button>
                 </mat-card-actions>
             </mat-card>
         </form>
