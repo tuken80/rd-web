@@ -1,0 +1,67 @@
+@import '~@angular/material/theming';
+@import '_variables';
+
+@include mat-core();
+
+$rd-app-typography: mat-typography-config(
+        $font-family: "'Akaya Telivigala', cursive",
+        $headline: mat-typography-level(80px, 60px, 700),
+        $body-1: mat-typography-level(16px, 24px, 500)
+);
+
+@include angular-material-typography($rd-app-typography);
+
+$rd-app-theme: mat-light-theme((
+        color: (
+                primary: $primary-palette,
+                accent: $accent-palette,
+                warn: $warn-palette,
+        )
+));
+
+@include angular-material-theme($rd-app-theme);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Akaya Telivigala', cursive; }
+
+.color-accent {
+  color: $accent-color;
+}
+
+.color-light {
+  color: $light-color;
+}
+
+.active mat-icon {
+  color: $accent-color;
+}
+
+.h1-size {
+  font-size: mat-font-size($rd-app-typography, headline);
+}
+
+.rotate {
+  -webkit-transition: -webkit-transform 1s;
+  transition: transform 1s;
+}
+
+.rotate:hover {
+  -ms-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.rotate-target {
+  -webkit-transition: -webkit-transform 1s;
+  transition: transform 1s;
+}
+
+.rotate-listener:hover .rotate-target {
+  -ms-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: $accent-color;
+}
