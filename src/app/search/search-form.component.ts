@@ -5,7 +5,7 @@ import {FormControl, FormGroup} from "@angular/forms";
     encapsulation: ViewEncapsulation.None,
     selector: 'app-form-search',
     template: `
-        <form class="rotate-listener"[formGroup]="SearchFormGroup" (ngSubmit)="search()">
+        <form class="rotate-listener" [formGroup]="SearchFormGroup" (ngSubmit)="search()">
             <mat-form-field appearance="outline" floatLabel="always" color="accent">
                 <mat-label class="color-accent">Search</mat-label>
                 <input matInput type="text" formControlName="search">

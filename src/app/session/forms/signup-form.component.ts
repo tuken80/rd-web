@@ -14,27 +14,28 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
                            <mat-step [stepControl]="idsFormGroup">
                                <form [formGroup]="idsFormGroup" fxLayout="column" fxLayoutAlign="center">
                                 <ng-template matStepLabel>Identifiants</ng-template>
-                                   <mat-form-field class="rotate-listener" appearance="outline" floatLabel="always" color="accent">
-                                       <mat-label class="color-accent">Adresse mail</mat-label>
-                                       <input matInput type="email" formControlName="mail" required>
-                                       <mat-icon class="rotate-target" matSuffix>mail</mat-icon>
-                                       <mat-error [hidden]="idsFormGroup.controls.mail.pristine">{{getMailErrors()}}</mat-error>
-                                   </mat-form-field>
-                                   <mat-form-field class="rotate-listener" appearance="outline" floatLabel="always" color="accent"  [ngSwitch]="showPassword">
-                                       <mat-label class="color-accent">Mot de passe</mat-label>
-                                       <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password" required>
-                                       <mat-icon class="rotate-target" matSuffix *ngSwitchCase="false" (click)="showPassword = !showPassword">visibility</mat-icon>
-                                       <mat-icon class="rotate-target" matSuffix *ngSwitchCase="true" (click)="showPassword = !showPassword">visibility_off</mat-icon>
-                                       <mat-error [hidden]="idsFormGroup.controls.password.pristine">{{getPasswordErrors()}}</mat-error>
-                                   </mat-form-field>
-                                   <mat-form-field class="rotate-listener" appearance="outline" floatLabel="always" color="accent" [ngSwitch]="showConfirmPassword">
-                                       <mat-label class="color-accent">Confirmation du mot de passe</mat-label>
-                                       <input matInput [type]="showConfirmPassword ? 'text' : 'password'" formControlName="confirmPassword" required>
-                                       <mat-icon class="rotate-target" matSuffix *ngSwitchCase="false" (click)="showConfirmPassword = !showConfirmPassword">visibility</mat-icon>
-                                       <mat-icon class="rotate-target" matSuffix *ngSwitchCase="true" (click)="showConfirmPassword = !showConfirmPassword">visibility_off</mat-icon>
-                                       <mat-error [hidden]="idsFormGroup.controls.confirmPassword.pristine">{{getConfirmPasswordErrors()}}</mat-error>
-                                   </mat-form-field>
-                                <div fxLayout="row" fxLayoutAlign="end center">
+                               <mat-form-field class="rotate-listener" appearance="outline" floatLabel="always" color="accent">
+                                   <mat-label class="color-accent">Adresse mail</mat-label>
+                                   <input matInput type="email" formControlName="mail" required>
+                                   <mat-icon class="rotate-target" matSuffix>mail</mat-icon>
+                                   <mat-error [hidden]="idsFormGroup.controls.mail.pristine">{{getMailErrors()}}</mat-error>
+                               </mat-form-field>
+                               <mat-form-field class="rotate-listener" appearance="outline" floatLabel="always" color="accent"  [ngSwitch]="showPassword">
+                                   <mat-label class="color-accent">Mot de passe</mat-label>
+                                   <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password" required>
+                                   <mat-icon class="rotate-target" matSuffix *ngSwitchCase="false" (click)="showPassword = !showPassword">visibility</mat-icon>
+                                   <mat-icon class="rotate-target" matSuffix *ngSwitchCase="true" (click)="showPassword = !showPassword">visibility_off</mat-icon>
+                                   <mat-error [hidden]="idsFormGroup.controls.password.pristine">{{getPasswordErrors()}}</mat-error>
+                               </mat-form-field>
+                               <mat-form-field class="rotate-listener" appearance="outline" floatLabel="always" color="accent" [ngSwitch]="showConfirmPassword">
+                                   <mat-label class="color-accent">Confirmation du mot de passe</mat-label>
+                                   <input matInput [type]="showConfirmPassword ? 'text' : 'password'" formControlName="confirmPassword" required>
+                                   <mat-icon class="rotate-target" matSuffix *ngSwitchCase="false" (click)="showConfirmPassword = !showConfirmPassword">visibility</mat-icon>
+                                   <mat-icon class="rotate-target" matSuffix *ngSwitchCase="true" (click)="showConfirmPassword = !showConfirmPassword">visibility_off</mat-icon>
+                                   <mat-error [hidden]="idsFormGroup.controls.confirmPassword.pristine">{{getConfirmPasswordErrors()}}</mat-error>
+                               </mat-form-field>
+                                <div fxLayout="row" fxLayoutAlign="center space-evenly">
+                                    <button type="reset" color="primary" mat-button>RESET</button>
                                     <button type="button" color="accent" mat-button matStepperNext>SUIVANT</button>
                                 </div>
                             </form>
@@ -56,24 +57,21 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
                                 </mat-form-field>
                                 <div fxLayout="row" fxLayoutAlign="center space-evenly">
                                     <button fxFlex="30" color="primary" type="button" mat-button matStepperPrevious>PRECEDENT</button>
-                                    <button fxFlex="30" color="accent" type="button" mat-button matStepperNext>INSCRIPTION</button>
+                                    <button fxFlex="30" color="primary" type="reset" mat-button>RESET</button>
+                                    <button fxFlex="30" color="accent" type="button" mat-button matStepperNext>SUIVANT</button>
                                 </div>
                             </form>
                         </mat-step>
                         <mat-step [stepControl]="cguFormGroup" optional="true">
                             <form [formGroup]="cguFormGroup" fxLayout="column" fxLayoutAlign="center">
                                 <ng-template matStepLabel>Conditions générales</ng-template>
-                                <mat-form-field class="rotate-listener" appearance="outline" floatLabel="always" color="accent">
-                                    <mat-label class="color-accent">Vous déclarez accepter les conditions générales d'utilisations</mat-label>
-                                    <mat-checkbox labelPosition="after" formControlName="accept" required>
-                                        I'm a checkbox
-                                    </mat-checkbox>
-                                    <mat-icon class="rotate-target" matSuffix>mail</mat-icon>
-                                    <mat-error [hidden]="cguFormGroup.controls.accept.pristine">{{getAcceptCGUErrors()}}</mat-error>
-                                </mat-form-field>
-                                <div>
-                                    <button mat-button matStepperPrevious>Back</button>
-                                    <button mat-button (click)="stepper.reset()">Reset</button>
+                                <mat-checkbox formControlName="accept" required>
+                                    J'accepte les conditions générales d'utilisation.
+                                </mat-checkbox>
+                                <div fxLayout="row" fxLayoutAlign="center space-evenly">
+                                    <button fxFlex="30" color="primary" type="button" mat-button matStepperPrevious>PRECEDENT</button>
+                                    <button fxFlex="30" color="primary" type="reset" mat-button>RESET</button>
+                                    <button fxFlex="30" color="accent" type="submit" mat-button matStepperNext>INSCRIPTION</button>
                                 </div>
                             </form>
                         </mat-step>

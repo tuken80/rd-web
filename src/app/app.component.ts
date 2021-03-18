@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, Injector} from '@angular/core';
+import {createCustomElement} from "@angular/elements";
+import {PopupService} from "./popup/popup.service";
+import {PopupComponent} from "./popup/popup.component";
 
 @Component({
   selector: 'app-root',
@@ -30,21 +33,11 @@ import { Component } from '@angular/core';
     <mat-sidenav-container class="sidenav-container">
         <mat-sidenav class="mat-elevation-z2" #sidenavNav mode="side" opened fixedInViewport="true" fixedTopGap="110" fixedBottomGap="50">
             <mat-list>
-                <div mat-subheader>Informations about us</div>
-                <mat-list-item class="rotate-listener" routerLink="/team" routerLinkActive="active" (mouseenter)="mouseEnter('team')"  (mouseleave)="mouseLeave('team')">
-                    <mat-icon class="rotate-target" mat-list-icon>groups</mat-icon>
-                    <div mat-line>Our TEAM</div>
-                    <div mat-line>Who we are ?</div>
-                </mat-list-item>
-                <mat-list-item class="rotate-listener" routerLink="/skills" routerLinkActive="active" (mouseenter)="mouseEnter('skills')"  (mouseleave)="mouseLeave('skills')">
-                    <mat-icon class="rotate-target" mat-list-icon>engineering</mat-icon>
-                    <div mat-line>Our SKILLS</div>
-                    <div mat-line>What expertise do we have ?</div>
-                </mat-list-item>
-                <mat-list-item class="rotate-listener" routerLink="/work" routerLinkActive="active" (mouseenter)="mouseEnter('work')"  (mouseleave)="mouseLeave('work')">
-                    <mat-icon class="rotate-target" mat-list-icon>work</mat-icon>
-                    <div mat-line>Our WORK</div>
-                    <div mat-line>What have we already done ?</div>
+                <div mat-subheader>Navigation</div>
+                <mat-list-item class="rotate-listener" routerLink="/home" routerLinkActive="active">
+                    <mat-icon class="rotate-target" mat-list-icon>home</mat-icon>
+                    <div mat-line>Accueil</div>
+                    <div mat-line>Qui somme nous ?</div>
                 </mat-list-item>
                 <mat-divider></mat-divider>
                 <div mat-subheader>Your space</div>
@@ -91,6 +84,13 @@ import { Component } from '@angular/core';
   ]
 })
 export class AppComponent {
+
+    constructor(injector: Injector, public popup: PopupService) {
+        const PopupElement = createCustomElement(PopupComponent, {injector});
+        // Register the custom element with the browser.
+        customElements.define('popup-element', PopupElement);
+    }
+
     mouseEnter(navItem: string): void {
 
     }

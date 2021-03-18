@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatTabsModule} from "@angular/material/tabs";
 import {MatStepperModule} from "@angular/material/stepper";
 import { MatListModule} from "@angular/material/list";
 import {MatCardModule} from "@angular/material/card";
@@ -16,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
     exports: [
         MatSidenavModule,
         MatToolbarModule,
+        MatTabsModule,
         MatStepperModule,
         MatListModule,
         MatCardModule,

@@ -5,28 +5,20 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MaterialModule} from "./modules/material.module";
+import {MaterialModule} from "./material.module";
 import {FlexLayoutModule} from "@angular/flex-layout";
 
-import {TeamPageComponent} from "./pages/team-page.component";
-import {SkillsPageComponent} from "./pages/skills-page.component";
-import {WorkPageComponent} from "./pages/work-page.component";
-import {LicensePageComponent} from "./pages/license-page.component";
-import {NotFoundPageComponent} from "./pages/not-found-page.component";
+import {SearchModule} from "./search/search.module";
 
-import {SearchFormComponent} from "./forms/search-form.component";
+import {PopupComponent} from "./popup/popup.component";
+import {PopupService} from "./popup/popup.service";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    TeamPageComponent,
-    SkillsPageComponent,
-    WorkPageComponent,
-    LicensePageComponent,
-    NotFoundPageComponent,
-    SearchFormComponent,
+    PopupComponent,
     AppComponent
   ],
   imports: [
@@ -37,9 +29,15 @@ import { AppComponent } from './app.component';
     ReactiveFormsModule,
     MaterialModule,
     FlexLayoutModule,
+    SearchModule,
     AppRoutingModule
   ],
-  providers: [  ],
-  bootstrap: [AppComponent]
+  providers: [
+      PopupService
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [
+      PopupComponent
+  ]
 })
 export class AppModule { }

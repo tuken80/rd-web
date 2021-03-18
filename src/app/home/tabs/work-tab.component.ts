@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-page-skills',
+    selector: 'app-tab-work',
     template: `
-    SKILLS PAGE
+    WORK TAB
   `,
     styles: []
 })
-export class SkillsPageComponent {}
+export class WorkTabComponent {}

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-page-team',
+    selector: 'app-tab-team',
     template: `
-    TEAM PAGE
+    TEAM TAB
   `,
     styles: []
 })
-export class TeamPageComponent {}
+export class TeamTabComponent {}
