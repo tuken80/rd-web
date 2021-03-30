@@ -4,24 +4,30 @@ import { CommonModule } from '@angular/common';
 import {MaterialModule} from "../material.module";
 import {FlexLayoutModule} from "@angular/flex-layout";
 
+import {MzdTimelineModule} from "ngx-mzd-timeline";
+
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+
 import {HomePageComponent} from "./home-page.component";
-import {TeamTabComponent} from "./tabs/team-tab.component";
-import {SkillsTabComponent} from "./tabs/skills-tab.component";
-import {WorkTabComponent} from "./tabs/work-tab.component";
+import {PortraitTabComponent} from "./tabs/portrait-tab.component";
+import {VieTabComponent} from "./tabs/vie-tab.component";
+import {PassionTabComponent} from "./tabs/passion-tab.component";
 
 import { HomeRoutingModule } from './home-routing.module';
 
 @NgModule({
     declarations: [
         HomePageComponent,
-        TeamTabComponent,
-        SkillsTabComponent,
-        WorkTabComponent
+        PortraitTabComponent,
+        VieTabComponent,
+        PassionTabComponent
     ],
     imports: [
         CommonModule,
         MaterialModule,
         FlexLayoutModule,
+        MzdTimelineModule,
+        FontAwesomeModule,
         HomeRoutingModule
     ]
 })

@@ -28,8 +28,36 @@ body { margin: 0; font-family: 'Akaya Telivigala', cursive; }
   color: $accent-color;
 }
 
+.color-warn {
+  color: $warn-color;
+}
+
 .color-light {
   color: $light-color;
+}
+
+.back-dark {
+  background-color: $dark-color;
+}
+
+.back-light {
+  background-color: $light-color;
+}
+
+.stroked-primary {
+  border: 1px solid $primary-color !important;
+}
+
+.stroked-accent {
+  border: 1px solid $accent-color !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .active mat-icon {
@@ -62,6 +90,15 @@ body { margin: 0; font-family: 'Akaya Telivigala', cursive; }
   transform: rotate(360deg);
 }
 
-.mat-form-field-appearance-outline .mat-form-field-outline-thick {
-  color: $accent-color;
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: $primary-color;
+}
+
+#search-form .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: $light-color;
+}
+
+mzd-timeline-content:after {
+  border: 2px $accent-color solid !important;
+  height: 32px !important;
 }

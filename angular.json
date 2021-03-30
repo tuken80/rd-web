@@ -1,9 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "496bbad7-226d-4bff-9957-8ab43da0f53e"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "rd-web": {
+    "mad-web": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -44,7 +47,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/rd-web",
+            "outputPath": "dist/mad-web",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -54,7 +57,8 @@
               "src/favicon.png",
               "src/favicon.svg",
               "src/_variables.scss",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.scss"
@@ -87,29 +91,32 @@
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "ngsw-config.json"
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "rd-web:build"
+            "browserTarget": "mad-web:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "rd-web:build:production"
+              "browserTarget": "mad-web:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rd-web:build"
+            "browserTarget": "mad-web:build"
           }
         }
       }
     }
   },
-  "defaultProject": "rd-web"
+  "defaultProject": "mad-web"
 }
