@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
+import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 
 import {environment} from '../../../environments/environment';
-import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-tab-portrait',
@@ -21,9 +21,6 @@ import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
                 <mat-card-actions fxLayout="row" fxLayoutAlign="space-evenly">
                     <button mat-icon-button color="primary" aria-label="Boutton pour accéder au profil Facebook de MAD" (click)="goToFacebook()">
                         <mat-icon class="rotate">facebook</mat-icon>
-                    </button>
-                    <button mat-icon-button color="primary" aria-label="Boutton pour accéder au profil Twitter de MAD" (click)="goToTwitter()">
-                        <img class="rotate" height="20" width="20" [src]="iconTwitterUrl" alt="Icon Twitter">
                     </button>
                     <button mat-icon-button color="primary" aria-label="Boutton pour accéder au profil Instagram de MAD" (click)="goToInstagram()">
                         <img class="rotate" height="20" width="20" [src]="iconInstagramUrl" alt="Icon Instagram">

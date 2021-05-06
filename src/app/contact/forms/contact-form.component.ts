@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from "@angular/material/snack-bar";
 import {AuthService} from "../../session/services/auth.service";
-import {ContactService} from "../contact.service";
+import {ContactService} from "../services/contact.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -47,7 +47,7 @@ import {Router} from "@angular/router";
                     </mat-form-field>
                 </mat-card-content>
                 <mat-card-actions fxLayout="row" fxLayoutAlign="center center">
-                    <button class="stroked-primary" mat-stroked-button color="primary" type="submit" [disabled]="formContact.touched && formContact.invalid">ENVOYER LA DEMANDE</button>
+                    <button class="stroked-primary" mat-stroked-button color="accent" type="submit" [disabled]="formContact.touched && formContact.invalid">ENVOYER LA DEMANDE</button>
                 </mat-card-actions>
             </mat-card>
         </form>

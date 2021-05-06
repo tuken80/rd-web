@@ -12,7 +12,7 @@ import {ContactListPageComponent} from "./pages/contact-list-page.component";
 import {ContactFormComponent} from "./forms/contact-form.component";
 import {ContactListComponent} from "./components/contact-list.component";
 
-import {ContactService} from "./contact.service";
+import {ContactService} from "./services/contact.service";
 
 import { ContactRoutingModule } from './contact-routing.module';
 

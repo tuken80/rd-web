@@ -100,5 +100,28 @@ body { margin: 0; font-family: 'Akaya Telivigala', cursive; }
 
 mzd-timeline-content:after {
   border: 2px $accent-color solid !important;
-  height: 32px !important;
+  height: 35px !important;
+}
+
+
+
+
+
+
+.example-action-buttons {
+  padding-bottom: 20px;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
 }

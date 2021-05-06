@@ -6,8 +6,6 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 
 import {MzdTimelineModule} from "ngx-mzd-timeline";
 
-import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
-
 import {HomePageComponent} from "./home-page.component";
 import {PortraitTabComponent} from "./tabs/portrait-tab.component";
 import {VieTabComponent} from "./tabs/vie-tab.component";
@@ -27,7 +25,6 @@ import { HomeRoutingModule } from './home-routing.module';
         MaterialModule,
         FlexLayoutModule,
         MzdTimelineModule,
-        FontAwesomeModule,
         HomeRoutingModule
     ]
 })

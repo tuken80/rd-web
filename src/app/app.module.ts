@@ -11,8 +11,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from "./material.module";
 import {FlexLayoutModule} from "@angular/flex-layout";
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
 import {SearchModule} from "./search/search.module";
 
 import {AuthInterceptor} from "./session/interceptors/auth.interceptor";
@@ -39,7 +37,6 @@ import { AppComponent } from './app.component';
     ReactiveFormsModule,
     MaterialModule,
     FlexLayoutModule,
-    FontAwesomeModule,
     SearchModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     AppRoutingModule

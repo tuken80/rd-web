@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 
 import {animate, state, style, transition, trigger} from '@angular/animations';
 
-import {ContactService} from "../contact.service";
+import {ContactService} from "../services/contact.service";
 import {Contact} from "../../models/contact";
 import {Mail} from "../../models/mail";
 import {Phone} from "../../models/phone";

@@ -9,14 +9,17 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {BlogPageComponent} from "./pages/blog-page.component";
 import {BlogHeaderComponent} from "./components/header.component";
 import {BlogListComponent} from "./components/list.component";
+import {CommentFormComponent} from "./forms/comment-form.component";
 
 import { BlogRoutingModule } from './blog-routing.module';
+import {ArticleService} from "./services/article.service";
 
 @NgModule({
     declarations: [
         BlogPageComponent,
         BlogHeaderComponent,
-        BlogListComponent
+        BlogListComponent,
+        CommentFormComponent
     ],
     imports: [
         CommonModule,
@@ -25,6 +28,9 @@ import { BlogRoutingModule } from './blog-routing.module';
         MaterialModule,
         FlexLayoutModule,
         BlogRoutingModule
+    ],
+    providers: [
+        ArticleService
     ]
 })
 export class BlogModule { }

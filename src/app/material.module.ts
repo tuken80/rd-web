@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatTabsModule} from "@angular/material/tabs";
+import {MatExpansionModule} from "@angular/material/expansion";
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatTableModule} from "@angular/material/table";
 import { MatListModule} from "@angular/material/list";
@@ -23,6 +24,7 @@ import { MatIconModule } from '@angular/material/icon';
         MatSidenavModule,
         MatToolbarModule,
         MatTabsModule,
+        MatExpansionModule,
         MatStepperModule,
         MatTableModule,
         MatListModule,
